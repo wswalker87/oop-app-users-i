@@ -1,21 +1,43 @@
 # your User class goes here
 class User:
 
-    def __init__(self, first_name = "", last_name = "", email_address = "", license_number = ""):
+    all_users = {}
+
+    def __init__(self, first_name = "", last_name = "", email_address = "", license_number = "", post  = ""):
         self.first_name = first_name
         self.last_name = last_name
         self.email_address = email_address
         self.license_number = license_number
+        self.post = post
 
-    def get_user_input(self):
-        self.first_name = input("Enter your first name: ")
+    def add_user_to_all_users(self):
+        """Adds this instance's details to the class attribute, all_users."""
+        # Access the class attribute via the class name
+        User.all_users[self.email_address] = self # add to all_users using email address
+
+
+    def create_new_user(self):
+        first_name = input("Enter your first name: ")
         print(f'First name is confirmed as: {self.first_name}.')
-        self.last_name = input("Enter your last name: ")
+        last_name = input("Enter your last name: ")
         print(f'Last name is confirmed as: {self.last_name}.')
-        self.email_address = input("Enter your email address: ")
-        print(f'Email address is confirmed as: {self.email_address}.')
-        self.license_number = input("Enter your driver's license number: ")
-        print(f"Driver's license is confirmed as: {self.license_number}.")
+        email_address = input("Enter your email address: ")
+        print(f'Email address is confirmed as: {self.email_address}. This will be your username')
+        license_number = input("Enter your driver's license number: ")
+        print(f"Driver's license is confirmed as: {self.license_number}. We don't know why we need it. We might sell it.")
+
+        new_user = User(first_name, last_name, email_address, license_number)
+        if email_address not in User.all_users:
+            print(f'Successfully addes new user. ')
+
+    def add_post(self):
+        # which post?
+        user_posts = input("Enter your post here: ")
+        self.post = user_posts
+        print(f"Post has been posted: {user_posts}")
+        #take post?
+    
+        
 
     def __str__(self):
         return f"You have chosen a user. That user's information is: \n First Name: {self.first_name} \n Last Name: {self.last_name} \n Email address: {self.email_address} \n Driver's License: {self.license_number}."
@@ -25,8 +47,8 @@ class User:
         # )
         
 
-user1 = User() # define the variable as the whole class.
+# user1 = User() # define the variable as the whole class.
 
-user1.get_user_input() # call the user variable, but then chain the get_user_input method onto it. 
+user1.create_new_user() # call the user variable, but then chain the get_user_input method onto it. 
 # self.give_user_info(self)
 print(user1)
