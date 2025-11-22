@@ -1,0 +1,27 @@
+# Byte-code files
+*.pyc
+__pycache__/
+
+# Virtual environments
+.venv
+venv/
+env/
+
+# Editor/IDE specific files
+.vscode/
+.idea/
+*.sublime-workspace
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Test-related files
+.pytest_cache/
+.coverage/
+htmlcov/
+
+# Sensitive information
+.env
+config.ini
