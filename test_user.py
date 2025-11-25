@@ -59,8 +59,8 @@ def test_free_user_add_post(mock_single_post_input, capsys):
 
     """.out: This attribute contains a string of everything that was written to standard output (stdout)—i.e., everything printed by the print() function in your code.
 
-.err: This attribute contains a string of everything that was written to standard error (stderr).
+       .err: This attribute contains a string of everything that was written to standard error (stderr).
 
-.in_: This attribute contains a string of any content that was read from standard input (stdin)."""
+       .in_: This attribute contains a string of any content that was read from standard input (stdin)."""
 
     

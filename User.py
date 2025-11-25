@@ -52,7 +52,7 @@ class Users(ABC):
         print("\nYour current posts are: ")
         
         for i, post in enumerate(self.posts):
-            print(f"[{i}]: {post[:50]}...") # if the post is super long, shorten it to the first 50 characters
+            print(f"[{i}]: {post[:50]}...") # if the post is super long, shorten it to the first 50 charactersCalled truncating
 
         try: #try, but throw error if no valid inxed 
             index_to_delete = int(input("FInd the post you want and enter the index here: "))
@@ -95,7 +95,7 @@ class FreeUser(Users):
         return
 
 
-    def add_post(self):
+    def add_post(self): # This method inherits from FreeUser, which in turn inherits from Users. It then overwrites the add_post method from the User Class
         # check how many posts. Free only gets 2 posts
         # set number of posts to equal the length of a 
         number_of_posts = len(self.posts)
@@ -108,25 +108,17 @@ class FreeUser(Users):
         print(f"Post has been posted: '{user_posts}'")
         
 
-    
-        
+print("--- Creating User ---")
+user1 = Users.create_new_user(PremiumUser)
+user1 = Users.create_new_user(FreeUser)
 
-# user1 = Users() # define the variable as the whole class.
+print("\n--- Adding Posts ---")
+user1.add_post() 
+user1.add_post() 
 
-# # user1.create_new_user() # call the user variable, but then chain the get_user_input method onto it. 
-# user1.add_post()                      
-# # self.give_user_info(self)
-# print(user1)
 
-# print("--- Creating User ---")
-# user1 = Users.create_new_user()
+print("\n--- Deleting a Post ---")
+user1.delete_post()
 
-# print("\n--- Adding Posts ---")
-# user1.add_post() 
-# user1.add_post() 
-
-# print("\n--- Deleting a Post ---")
-# user1.delete_post()
-
-# print("\n--- Final Check ---")
-# print(user1)
+print("\n--- Final Check ---")
+print(user1)
